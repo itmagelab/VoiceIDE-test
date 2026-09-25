@@ -1,8 +1,11 @@
-# Default .gitignore
+# Ignore patterns for this repository.
 #
-# Standard ignore patterns for the most common file types: operating-system
-# files, editor/IDE state, logs, secrets, dependencies, build output, caches,
-# and temporary files. Remove or comment out any section that doesn't apply.
+# Trimmed down from the default template to what can plausibly appear here:
+# this repository only contains documentation and configuration files
+# (README, cliff.conf, CHANGELOG.md and a GitHub Actions workflow), so the
+# stack-specific sections — dependencies, build output, coverage, logs,
+# archives and the Node/Python/Rust tooling — were removed. Kept: OS files,
+# common editor state, secrets and temporary files.
 
 ##### Operating systems #####
 
@@ -32,20 +35,14 @@ $RECYCLE.BIN/
 
 ##### Editors & IDEs #####
 
-# VS Code (keep shared settings, ignore local state)
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+# VS Code — this repo keeps no shared settings, so ignore the folder wholesale
+.vscode/
 .history/
 
-# JetBrains (IntelliJ IDEA, PyCharm, WebStorm, ...)
+# JetBrains (IntelliJ IDEA, PyCharm, WebStorm, ...) — .idea/ and *.iml cover
+# the project state these IDEs write today
 .idea/
 *.iml
-*.iws
-*.ipr
-out/
 
 # Vim
 *.sw[a-p]
@@ -58,36 +55,11 @@ out/
 auto-save-list/
 tramp
 
-# Sublime Text
-*.sublime-workspace
-*.tmlanguage.cache
-*.tmPreferences.cache
-*.stTheme.cache
-
-# Eclipse
-.project
-.classpath
-.settings/
-*.launch
-*.pydevproject
-
-##### Logs #####
-
-*.log
-logs/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-
 ##### Secrets & credentials #####
 
-# Environment files — keep only the shared example/template ones
+# Environment files — no .env.example/.env.template exists to un-ignore
 .env
 .env.*
-!.env.example
-!.env.template
 
 # Keys and certificates — never commit these
 *.pem
@@ -95,43 +67,6 @@ lerna-debug.log*
 *.p12
 *.pfx
 *.jks
-
-##### Dependencies #####
-
-node_modules/
-bower_components/
-vendor/
-.pnp
-
-##### Build output & coverage #####
-
-dist/
-build/
-out/
-coverage/
-
-##### Language tooling #####
-
-# Node
-.npm
-.eslintcache
-*.tsbuildinfo
-
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.egg-info/
-.eggs/
-venv/
-.venv/
-env/
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
-
-# Rust
-target/
 
 ##### Temporary & cache files #####
 
@@ -141,16 +76,6 @@ target/
 .cache/
 tmp/
 temp/
-
-##### Archives #####
-
-*.zip
-*.tar.gz
-*.rar
-*.7z
-*.gz
-*.iso
-*.dmg
 
 ##### Project-specific (optional) #####
 
