@@ -1,0 +1,16 @@
+[package]
+name = "conventional"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.70"
+description = "A tiny parser and classifier for Conventional Commits messages"
+license = "MIT OR Apache-2.0"
+publish = false
+
+# The crate is deliberately dependency-free: the parser is hand-rolled and
+# the CLI uses nothing but std, so `cargo build` needs no network access.
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
