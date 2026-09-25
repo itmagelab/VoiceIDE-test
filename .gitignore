@@ -1,0 +1,159 @@
+# Default .gitignore
+#
+# Standard ignore patterns for the most common file types: operating-system
+# files, editor/IDE state, logs, secrets, dependencies, build output, caches,
+# and temporary files. Remove or comment out any section that doesn't apply.
+
+##### Operating systems #####
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.AppleDouble
+.LSOverride
+Icon?
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:ignore
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+##### Editors & IDEs #####
+
+# VS Code (keep shared settings, ignore local state)
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/
+
+# JetBrains (IntelliJ IDEA, PyCharm, WebStorm, ...)
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Vim
+*.sw[a-p]
+.vim/
+*.viminfo
+
+# Emacs
+\#*\#
+.\#*
+auto-save-list/
+tramp
+
+# Sublime Text
+*.sublime-workspace
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+
+# Eclipse
+.project
+.classpath
+.settings/
+*.launch
+*.pydevproject
+
+##### Logs #####
+
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+##### Secrets & credentials #####
+
+# Environment files — keep only the shared example/template ones
+.env
+.env.*
+!.env.example
+!.env.template
+
+# Keys and certificates — never commit these
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+
+##### Dependencies #####
+
+node_modules/
+bower_components/
+vendor/
+.pnp
+
+##### Build output & coverage #####
+
+dist/
+build/
+out/
+coverage/
+
+##### Language tooling #####
+
+# Node
+.npm
+.eslintcache
+*.tsbuildinfo
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+venv/
+.venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Rust
+target/
+
+##### Temporary & cache files #####
+
+*.tmp
+*.temp
+*.bak
+.cache/
+tmp/
+temp/
+
+##### Archives #####
+
+*.zip
+*.tar.gz
+*.rar
+*.7z
+*.gz
+*.iso
+*.dmg
+
+##### Project-specific (optional) #####
+
+# Uncomment to ignore a local auto-detected git-cliff config copied from
+# cliff.conf (see README) instead of committing the duplicate:
+# cliff.toml
