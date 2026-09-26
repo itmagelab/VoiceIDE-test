@@ -58,7 +58,7 @@ out/
 auto-save-list/
 tramp
 
-# Sublime Text
+# Sublime
 *.sublime-workspace
 *.tmlanguage.cache
 *.tmPreferences.cache
@@ -151,9 +151,3 @@ temp/
 *.gz
 *.iso
 *.dmg
-
-##### Project-specific (optional) #####
-
-# Uncomment to ignore a local auto-detected git-cliff config copied from
-# cliff.conf (see README) instead of committing the duplicate:
-# cliff.toml
