@@ -15,8 +15,8 @@
 #       -f range=v1.0.0..HEAD -f unreleased_only=true
 #
 # The run checks out the full history, installs git-cliff, renders a
-# changelog with cliff.conf and leaves the result in three places: the job
-# log, the run summary and a downloadable artifact.
+# changelog with its built-in defaults and leaves the result in three
+# places: the job log, the run summary and a downloadable artifact.
 #
 # To reuse this for something else, keep the `on: workflow_dispatch` block
 # and replace the steps.
@@ -110,8 +110,6 @@ jobs:
       # (`tool: git-cliff@<version>`) for reproducible runs, or replace the
       # step with any other install method, e.g. the official action:
       #   - uses: orhunp/git-cliff-action@v4
-      #     with:
-      #       config: cliff.conf
       - name: Install git-cliff
         uses: taiki-e/install-action@v2
         with:
@@ -128,7 +126,7 @@ jobs:
         run: |
           set -euo pipefail
 
-          args=(--config cliff.conf)
+          args=()
           if [ "$UNRELEASED_ONLY" = "true" ]; then
             args+=(--unreleased)
           fi
@@ -136,7 +134,10 @@ jobs:
             args+=("$RANGE")
           fi
 
-          git cliff "${args[@]}" > CHANGELOG.md
+          # `${args[@]+"${args[@]}"}` rather than plain `"${args[@]}"`:
+          # both inputs can be empty at once, and expanding an empty array
+          # trips `set -u` on bash older than 4.4 (macOS still ships 3.2).
+          git cliff ${args[@]+"${args[@]}"} > CHANGELOG.md
           cat CHANGELOG.md
 
       # Whatever is appended to `$GITHUB_STEP_SUMMARY` shows up as markdown

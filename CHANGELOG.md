@@ -11,6 +11,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - This `CHANGELOG.md` file to start documenting notable changes to the project.
 
+### Removed
+
+- The example git-cliff configuration (`cliff.conf`) and the references to it
+  in `README.md` and `.gitignore`; the manual changelog workflow now runs
+  git-cliff with its built-in defaults instead.
+
 <!--
 Example entry template — copy this block for each new version, fill in the
 version number and date, and delete the categories you do not use:
