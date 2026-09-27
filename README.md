@@ -80,3 +80,50 @@ The result is written nowhere else, so the workflow runs with the narrowest
 possible `permissions: contents: read`. Copy the file and swap the steps for
 whatever should run on demand — the `on: workflow_dispatch` block stays the
 same.
+
+## Минимальный Rust-крейт
+
+В репозитории добавлен простой рабочий крейт [`rust-example`](rust-example/).
+Он не использует внешних зависимостей и выводит приветствие в консоль.
+
+Структура крейта:
+
+```text
+rust-example/
+├── Cargo.toml
+└── src/
+    └── main.rs
+```
+
+`rust-example/Cargo.toml`:
+
+```toml
+[package]
+name = "rust-example"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+```
+
+`rust-example/src/main.rs`:
+
+```rust
+fn main() {
+    println!("Привет, Rust!");
+}
+```
+
+Запуск из корня репозитория:
+
+```console
+$ cargo run --manifest-path rust-example/Cargo.toml
+Привет, Rust!
+```
+
+Проверка и форматирование:
+
+```console
+$ cargo check --manifest-path rust-example/Cargo.toml
+$ cargo fmt --manifest-path rust-example/Cargo.toml
+```
